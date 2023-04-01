@@ -8,6 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        fc_main : "#fff",
+        fc_sec : "#cccccc",
+        fc_input: "#111",
+        amazon_search: {
+          DEFAULT: '#febd69',
+          hover: '#f3a847',
+        },
+        // amazon_search_hover: '#f3a847',
         amazon_blue: {
           light: "#232F3E",
           DEFAULT: "#131921",
