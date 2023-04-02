@@ -18,6 +18,7 @@ module.exports = {
         // amazon_search_hover: '#f3a847',
         amazon_blue: {
           light: "#232F3E",
+          sec: "#232f3e",
           DEFAULT: "#131921",
         },
       },
