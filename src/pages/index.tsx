@@ -8,7 +8,7 @@ const Home : React.FC = () : JSX.Element => {
       <Head>
         <title>Amazon</title>
       </Head>
-      <body>
+      <div>
 
         {/* HomePage Navbar */}
         <Header /> 
@@ -18,7 +18,7 @@ const Home : React.FC = () : JSX.Element => {
           <Banner />
         </main>
 
-      </body>
+      </div>
     </div>
   );
 }
