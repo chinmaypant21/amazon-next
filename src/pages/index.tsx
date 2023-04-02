@@ -1,15 +1,26 @@
 import Head from "next/head";
-import Header from "../components/Header/Header";
+import React from "react";
+import {Header, Banner} from "../components";
 
-export default function Home() {
+const Home : React.FC = () : JSX.Element => {
   return (
     <div>
       <Head>
         <title>Amazon</title>
       </Head>
       <body>
-        <Header />
+
+        {/* HomePage Navbar */}
+        <Header /> 
+
+        {/* mx-auto */}
+        <main className="max-w-screen-2xl ">
+          <Banner />
+        </main>
+
       </body>
     </div>
   );
 }
+
+export default Home;
