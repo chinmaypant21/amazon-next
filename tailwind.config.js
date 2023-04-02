@@ -17,10 +17,16 @@ module.exports = {
         },
         // amazon_search_hover: '#f3a847',
         amazon_blue: {
+          mobile: '#37475A',
           light: "#232F3E",
           sec: "#232f3e",
           DEFAULT: "#131921",
         },
+      },
+      screens: {
+        'xs': '320px',
+        'xs-m': '375px',
+        'xs-l': '425px',
       },
     },
   },
