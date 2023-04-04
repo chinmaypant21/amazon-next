@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
 import style from '../../styles/Header.module.css'
 import {LocationIcon, MenuIcon, SearchIcon}  from '../../utils/icons'
+import fetchLocationAPI from '../../utils/fetchLocationAPI'
 
 type SearchProps = {
   className?: string;
@@ -21,6 +22,14 @@ const SearchBar : React.FC<SearchProps>= ({className = ''} : SearchProps) : JSX.
 }
 
 const Header : React.FC = () : JSX.Element => {
+  const [location, setLocation] = useState<[string, string]>(['',''])
+
+  useEffect(() => {
+    fetchLocationAPI().then(data =>
+      setLocation(data)
+    )
+  },[])
+
   return (  
     <header className={`text-fc_main ${style.pg_header}`}>
       {/* Top header */}
@@ -45,13 +54,13 @@ const Header : React.FC = () : JSX.Element => {
             <div className='flex items-center'>
               <div className={`items-center ${style.location_text} ${style.text_lined}`}>
                 <span className='text-xs text-fc_sec'>Deliver to {'Chinmay'}</span>
-                <span className='text-base w-full '>{'Delhi'} {'110001'}</span>
+                <span className='text-base w-full '>{location[0]} {location[1]}</span>
               </div>
             </div>
           </div>
 
           {/* SearchBar */}
-          <SearchBar className='hidden md:flex' />
+          <SearchBar className='hidden md:flex mx-2' />
 
           {/* Language */}
           <div className={`hidden md:flex items-center font-semibold ${style.langauge_container}`}>
@@ -85,8 +94,9 @@ const Header : React.FC = () : JSX.Element => {
           
         </div>
 
+        {/* Mobile SearchBar */}
         <div className='flex'>
-          <SearchBar className='md:hidden mx-5 !h-10 '/>
+          <SearchBar className='md:hidden mx-4 !h-10 '/>
         </div>
       </div>
 
@@ -106,7 +116,7 @@ const Header : React.FC = () : JSX.Element => {
       {/* Delivery Location Extend */}
       <div className='md:hidden flex items-center bg-amazon_blue-mobile py-2 pl-1 text-xs'>
         <LocationIcon className='text-xll'/>
-        <span>{`Delivery Address: ${'Chinmay'} - ${'Delhi 110085'} `}</span>
+        <span>{`Delivery Address: ${'Chinmay'} - ${location[0]} ${location[1]} `}</span>
       </div>
 
     </header>
