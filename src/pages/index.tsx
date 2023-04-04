@@ -13,8 +13,7 @@ const Home : React.FC = () : JSX.Element => {
         {/* HomePage Navbar */}
         <Header /> 
 
-        {/* mx-auto */}
-        <main className="max-w-screen-2xl ">
+        <main className="max-w-screen-2xl mx-auto">
           <Banner />
         </main>
 

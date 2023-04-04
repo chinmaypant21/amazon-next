@@ -1,4 +1,30 @@
-.carousal_image{
-    max-height: 80vh;
+.carousel_image{
+    /* max-height: 70vh; */
     object-fit:cover;
+}
+
+.carousel_container{
+    position: relative;
+}
+
+.carousel_container::after{
+    position: absolute;
+    width: 100%;
+    height: 100%;  
+    top: 0;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(-180deg,rgba(234,237,237,0), #e3e6e604 ,#e3e6e6);
+}
+
+@media screen and (max-width: 768px) {
+    .carousel_image{
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .carousel_wrapper > div > ul:nth-child(1){
+        bottom: 20%;
+    }
 }

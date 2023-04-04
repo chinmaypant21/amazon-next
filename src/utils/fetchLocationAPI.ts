@@ -8,11 +8,16 @@ type responseData = {
 }
 
 const fetchLocationAPI : locationFunction = async () => {
-    var response : Response = await fetch(locationAPI)
-    var data : responseData = await response.json()
+    try{
+        var response : Response = await fetch(locationAPI)
+        var data : responseData = await response.json()
+        if (data.city.length > 9)
+            data.city = data.city.slice(0,8).concat('..')
+    } 
+    catch(e) {
+        data = {city:'India', postal: '110001'}
+    }
 
-    if (data.city.length > 9)
-        data.city = data.city.slice(0,8).concat('..')
         
     return([data.city, data.postal])
 }
