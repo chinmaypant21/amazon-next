@@ -1,0 +1,4 @@
+.carousal_image{
+    max-height: 80vh;
+    object-fit:cover;
+}

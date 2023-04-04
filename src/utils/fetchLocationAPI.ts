@@ -7,14 +7,13 @@ type responseData = {
     postal : string
 }
 
-const fetchLocationAPI : locationFunction= async () => {
+const fetchLocationAPI : locationFunction = async () => {
     var response : Response = await fetch(locationAPI)
     var data : responseData = await response.json()
-    console.log(data.city.length)
+
     if (data.city.length > 9)
         data.city = data.city.slice(0,8).concat('..')
-
-    console.log('hey')
+        
     return([data.city, data.postal])
 }
 
