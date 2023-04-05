@@ -8,7 +8,7 @@ module.exports = {
     return config;
   },
   images: {
-      domains: []
+      domains: ['fakestoreapi.com']
   }
 
 };

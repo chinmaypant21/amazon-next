@@ -1,0 +1,15 @@
+.product_feed_container{
+    position: relative;
+    top: -13rem;
+}
+
+.product_card_container{
+    /* background-color: white; */
+}
+
+.description_container{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;  
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
