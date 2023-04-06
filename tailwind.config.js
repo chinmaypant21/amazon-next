@@ -11,6 +11,7 @@ module.exports = {
         fc_main : "#fff",
         fc_sec : "#cccccc",
         fc_input: "#111",
+        fc_dark_sec : '#252525',
         amazon_search: {
           DEFAULT: '#febd69',
           hover: '#f3a847',
