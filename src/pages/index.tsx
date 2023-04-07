@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 import {Header, Banner, ProductFeed} from "../components";
 import fetchFakeStoreAPI from "../utils/fetchFakeStoreAPI";
 import { storeProductType } from "../utils/commonTypes"; 
@@ -27,10 +27,11 @@ const Home : React.FC<{products: storeProductType[]}> = ({products}) : JSX.Eleme
 }
 
 export async function getServerSideProps(context) {
-  const products : storeProductType[] = await fetchFakeStoreAPI()  
+  const products : storeProductType[] = await fetchFakeStoreAPI()
+  console.log('serverside')
+  // console.clear()
 
-  // testing
-  // const products = Array(10).fill({
+  // const products = Array(6).fill({
   //   id: 20,
   //   title: 'DANVOUY Womens T Shirt Casual Cotton Short',
   //   price: 12.99,

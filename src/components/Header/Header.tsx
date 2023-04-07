@@ -31,7 +31,7 @@ const Header : React.FC = () : JSX.Element => {
   },[])
 
   return (  
-    <header className={`text-fc_main ${style.pg_header}`}>
+    <header className={`sticky top-0 z-20 text-fc_main ${style.pg_header}`}>
       {/* Top header */}
       <div className='flex flex-col bg-amazon_blue-sec md:bg-amazon_blue '>
         <div className={`flex items-center ${style.top_container}`}>

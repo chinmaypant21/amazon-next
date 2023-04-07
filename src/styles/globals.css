@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --card-banner-shift: -18%;
+}
+
 html{
     background-color: #e3e6e6;
 }

@@ -20,8 +20,7 @@
 .carousel_wrapper > div > button{
     padding: 1em !important;
     opacity: 0.8 !important;
-    /* height: 50%; */
-    /* color: blue !important; */
+    height: calc(100% + (var(--card-banner-shift) * 2.5)) !important;
 }
 
 .carousel_wrapper > div > button:hover{
