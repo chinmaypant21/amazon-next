@@ -4,6 +4,7 @@
 
 :root{
     --card-banner-shift: -18%;
+    --card-banner-shift-sm: -7%;
 }
 
 html{

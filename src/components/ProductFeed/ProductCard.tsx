@@ -49,7 +49,7 @@ const ProductCard : React.FC<{product : storeProductType}> = ({product}) => {
             </div>
 
             <div className='flex items-center justify-center mt-5'>
-                <div className={style.cart_btn}>
+                <div className={`w-4/5 xs-l:w-full sm:w-4/5 xl:w-3/5 text-center ${style.cart_btn}`}>
                     <span>Add to Cart</span>
                 </div>
             </div>

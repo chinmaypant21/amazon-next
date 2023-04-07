@@ -27,7 +27,7 @@ const Banner : React.FC = () : JSX.Element => {
   return (
     <div className={style.carousel_container}>
       <Carousel
-        // autoPlay
+        autoPlay
         infiniteLoop
         showStatus={false}
         showIndicators={media.isSmall ? true : false}

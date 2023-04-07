@@ -36,6 +36,6 @@
 
 @media screen and (max-width: 500px) {
     .carousel_wrapper > div > ul:nth-child(1){
-        bottom: 20%;
+        bottom: 10%;
     }
 }

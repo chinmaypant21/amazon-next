@@ -1,6 +1,8 @@
 .product_feed_container{
     position: relative;
+    margin: 0 1.5em;
     margin-top: var(--card-banner-shift);
+    gap: 1.5em 1.5em;
 }
 
 .title_container{
@@ -19,7 +21,7 @@
 }
 
 .cart_btn{
-    padding: 0.4rem 3rem;
+    padding: 0.4rem 0;
     border-radius: 0.4rem;
     box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
     background: #FFD814;
@@ -44,4 +46,21 @@
     .product_card_container > *{
         cursor: pointer;
     }
+}
+
+@media screen and (max-width:500px){
+    .product_feed_container{
+        margin-top: var(--card-banner-shift-sm);
+    }
+}
+
+@media screen and (max-width:425px) {
+    .product_feed_container{
+        gap: 1em;
+        margin-left:  5vw;
+        margin-right: 5vw;
+
+    }
+
+
 }
