@@ -109,7 +109,7 @@ const Header : React.FC = () : JSX.Element => {
           <span className='hidden xs-l:block'>Baby</span>
           <span>Pet Supplies</span>
           <span className='hidden sm:block'>Grocery & Gourmet Foods</span>
-          <span>Deal</span>
+          <span className='lg:hidden xl:block'>Deal</span>
           <span className='hidden lg:block'>Health, Household & Personal Care</span>
       </div>
 
