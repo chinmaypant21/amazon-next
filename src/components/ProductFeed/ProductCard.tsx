@@ -19,7 +19,7 @@ const ProductCard : React.FC<{product : storeProductType}> = ({product}) => {
                 <span className={`font-semibold ${style.title_container}`}>{product?.title}</span>
             </div>
 
-            <div className='flex items-center gap-x-1 font-medium text-sky-700'>
+            <div className='flex items-center gap-x-1 font-medium text-sky-700 mb-2'>
                 <Rating name="read-only" 
                     value={product?.rating?.rate} 
                     precision={0.5}
@@ -29,11 +29,11 @@ const ProductCard : React.FC<{product : storeProductType}> = ({product}) => {
                 <span className='text-xs hover:underline'>{product?.rating?.count}</span>
             </div>
 
-            <div className={`text-fc_dark_sec ${style.description_container}`}>
+            <div className={`text-fc_dark_sec mb-3 ${style.description_container}`}>
                 <span>{product?.description}</span>
             </div>
 
-            <div className='flex align-top'>
+            <div className='flex align-top mb-1'>
                 <span className='text-xs leading-none'>₹</span>
                 <CurrencyFormat className='text-md font-medium leading-none'
                     value={product?.price * 82} 
@@ -48,7 +48,7 @@ const ProductCard : React.FC<{product : storeProductType}> = ({product}) => {
                 <Image height='15' width='40' alt='prime' loading='lazy' src='/prime_marker.png' />
             </div>
 
-            <div className='flex items-center justify-center'>
+            <div className='flex items-center justify-center mt-5'>
                 <div className={style.cart_btn}>
                     <span>Add to Cart</span>
                 </div>
