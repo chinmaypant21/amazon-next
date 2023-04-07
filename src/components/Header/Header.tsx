@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
 import style from '../../styles/Header.module.css'
+import ClickAwayListener from '@mui/base/ClickAwayListener';
 import {LocationIcon, MenuIcon, SearchIcon}  from '../../utils/icons'
 import fetchLocationAPI from '../../utils/fetchLocationAPI'
+import {signIn, signOut, useSession} from 'next-auth/react';
 
 type SearchProps = {
   className?: string;
@@ -23,12 +25,28 @@ const SearchBar : React.FC<SearchProps>= ({className = ''} : SearchProps) : JSX.
 
 const Header : React.FC = () : JSX.Element => {
   const [location, setLocation] = useState<[string, string]>(['',''])
+  const [authBtnElementOpen, setAuthBtnElementOpen] = useState(false)
+  const session = useSession()
 
   useEffect(() => {
     fetchLocationAPI().then(data =>
       setLocation(data)
     )
   },[])
+
+  const handleSignClickAway = () => {
+    setAuthBtnElementOpen(false);
+  }
+
+  const handleAuthBtnClick = () => {
+    (session.status === 'unauthenticated')
+      ? signIn()
+      : setAuthBtnElementOpen(!authBtnElementOpen);
+  }
+
+  const handleSignOut = () => {
+    signOut()
+  }
 
   return (  
     <header className={`sticky top-0 z-20 text-fc_main ${style.pg_header}`}>
@@ -53,7 +71,11 @@ const Header : React.FC = () : JSX.Element => {
             </div>
             <div className='flex items-center'>
               <div className={`items-center ${style.location_text} ${style.text_lined}`}>
-                <span className='text-xs text-fc_sec'>Deliver to {'Chinmay'}</span>
+                <span className='text-xs text-fc_sec'>Deliver to { session.status == 'authenticated' 
+                  ? session.data.user.name.split(' ')[0]
+                  : 'User'
+                  }
+                </span>
                 <span className='text-base w-full '>{location[0]} {location[1]}</span>
               </div>
             </div>
@@ -71,10 +93,29 @@ const Header : React.FC = () : JSX.Element => {
           </div>
 
           {/* Accounts & Lists  */}
-          <div className={`${style.text_lined}`}>
-              <span className={`text-xs`}>{`Hello, ${'Chinmay'}`}</span>
+          <ClickAwayListener onClickAway={handleSignClickAway}>
+            <div className={`${style.text_lined} ${style.account_container}`} onClick={handleAuthBtnClick}>
+              <span className={`text-xs`}>
+                {
+                  session.status == 'authenticated' 
+                  ? `Hello, ${session?.data?.user?.name.split(' ')[0]}` 
+                  : 'Hello, Sign in'
+                }
+              </span>
+
               <span className='font-semibold'>Account & Lists</span>
-          </div>
+              {
+                (authBtnElementOpen &&
+                  <div className={style.account_auth_container}>
+                    <div onClick={handleSignOut}>
+                      Sign Out
+                    </div>
+
+                  </div>
+                )
+              }
+            </div>
+          </ClickAwayListener>
 
           {/* Orders */}
           <div className={`hidden lg:flex flex-col`}>

@@ -69,6 +69,29 @@
     border-radius: 0.1em ;
 }
 
+.account_container{
+    position: relative;
+}
+
+.account_auth_container{
+    background-color: white;
+    padding: 1em;
+    width: 10em;
+    position: absolute;
+    border-radius: 0.4em;
+    bottom: -4rem;
+    left: -1rem;
+}
+
+.account_auth_container > div{
+    background-color: #f6cd00;
+    color: black;
+    border-radius: 0.3em;
+    width: 100%;
+    text-align: center;
+    padding: 0.5em;
+}
+
 .cart_container{
     position: relative;   
 }
