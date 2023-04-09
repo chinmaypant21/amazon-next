@@ -2,6 +2,8 @@ import { Provider } from 'react-redux'
 import { SessionProvider} from 'next-auth/react'
 import { store } from '../app/store'
 import '../styles/globals.css'
+import { Header } from '../components'
+
 const MyApp = ({ Component, pageProps }) => {
   return (
     <SessionProvider>

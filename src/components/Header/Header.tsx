@@ -5,6 +5,7 @@ import ClickAwayListener from '@mui/base/ClickAwayListener';
 import {LocationIcon, MenuIcon, SearchIcon}  from '../../utils/icons'
 import fetchLocationAPI from '../../utils/fetchLocationAPI'
 import {signIn, signOut, useSession} from 'next-auth/react';
+import Link from 'next/link';
 
 type SearchProps = {
   className?: string;
@@ -62,14 +63,16 @@ const Header : React.FC = () : JSX.Element => {
         <div className={`flex items-center ${style.top_container}`}>
 
           {/* Logo */}
-          <div>
-            <Image src='/amazon_logo.png' 
-              className="mt-2 h-9 sm:h-11 lg:h-full"
-              alt="Logo"
-              width='100'
-              height='40' 
-            />
-          </div>
+          <Link href='/'>
+            <div>
+              <Image src='/amazon_logo.png' 
+                className="mt-2 h-9 sm:h-11 lg:h-full"
+                alt="Logo"
+                width='100'
+                height='40' 
+                />
+            </div>
+          </Link>
 
           {/* Location */}
           <div className='hidden md:flex flex-row'>
@@ -131,14 +134,16 @@ const Header : React.FC = () : JSX.Element => {
           </div>
 
           {/* Cart */}
-          <div className='flex'>
-            <div className={style.cart_container}>
-              <Image src={'/cartIcon.png'} alt='cart' width={40} height={35}/>
-              {/* <CartIcon /> */}
-              <span className='text-orange-400 font-semibold w-full flex justify-center'>{'0'}</span>
+          <Link href='/checkout'>
+            <div className='flex'>
+              <div className={style.cart_container}>
+                <Image src={'/cartIcon.png'} alt='cart' width={40} height={35}/>
+                {/* <CartIcon /> */}
+                <span className='text-orange-400 font-semibold w-full flex justify-center'>{'0'}</span>
+              </div>
+              <span className='hidden md:flex items-center font-bold'>Cart</span>
             </div>
-            <span className='hidden md:flex items-center font-bold'>Cart</span>
-          </div>
+          </Link>
           
         </div>
 
