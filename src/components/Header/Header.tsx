@@ -63,7 +63,7 @@ const Header : React.FC = () : JSX.Element => {
 
           {/* Logo */}
           <div>
-            <Image src='/assets/amazon_logo.png' 
+            <Image src='/amazon_logo.png' 
               className="mt-2 h-9 sm:h-11 lg:h-full"
               alt="Logo"
               width='100'
@@ -133,7 +133,7 @@ const Header : React.FC = () : JSX.Element => {
           {/* Cart */}
           <div className='flex'>
             <div className={style.cart_container}>
-              <Image src={'/assets/cartIcon.png'} alt='cart' width={40} height={35}/>
+              <Image src={'/cartIcon.png'} alt='cart' width={40} height={35}/>
               {/* <CartIcon /> */}
               <span className='text-orange-400 font-semibold w-full flex justify-center'>{'0'}</span>
             </div>

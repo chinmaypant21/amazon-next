@@ -10,3 +10,12 @@ export type storeProductType = {
         rate : number
     }
 }
+
+export type authProviderType = {
+  google : {
+    id: string,
+    name: string,
+    signinUrl : string,
+    callbackUrl : string 
+  }
+}

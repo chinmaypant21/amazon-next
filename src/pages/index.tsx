@@ -9,7 +9,7 @@ const Home : React.FC<{products: storeProductType[]}> = ({products}) : JSX.Eleme
   return (
     <div>
       <Head>
-        <title>Amazon</title>
+        <title>Amazon - Online Shopping site</title>
       </Head>
       <div>
 

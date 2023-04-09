@@ -12,6 +12,11 @@ module.exports = {
         fc_sec : "#cccccc",
         fc_input: "#111",
         fc_dark_sec : '#252525',
+        amazon_grad: {
+          start: '#f8e3ad',
+          stop: '#EEBA37',
+
+        },
         amazon_search: {
           DEFAULT: '#febd69',
           hover: '#f3a847',
