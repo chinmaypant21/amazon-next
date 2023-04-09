@@ -9,5 +9,7 @@ export const authOptions = {
       }),
     ],
     secret: process.env.NEXTAUTH_SECRET,
+    // secret is only required for production environments
   }
+  
   export default NextAuth(authOptions)

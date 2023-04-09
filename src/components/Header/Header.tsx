@@ -25,9 +25,16 @@ const SearchBar : React.FC<SearchProps>= ({className = ''} : SearchProps) : JSX.
 
 const Header : React.FC = () : JSX.Element => {
   const [location, setLocation] = useState<[string, string]>(['',''])
+  const [userName, setUserName] = useState('')
   const [authBtnElementOpen, setAuthBtnElementOpen] = useState(false)
   const session = useSession()
 
+  useEffect(()=>{
+    if (session.status === 'authenticated')
+      setUserName(session.data.user.name.split(' ')[0]);
+  },[session])
+  
+  
   useEffect(() => {
     fetchLocationAPI().then(data =>
       setLocation(data)
@@ -72,7 +79,7 @@ const Header : React.FC = () : JSX.Element => {
             <div className='flex items-center'>
               <div className={`items-center ${style.location_text} ${style.text_lined}`}>
                 <span className='text-xs text-fc_sec'>Deliver to { session.status == 'authenticated' 
-                  ? session.data.user.name.split(' ')[0]
+                  ? userName
                   : 'User'
                   }
                 </span>
@@ -98,7 +105,7 @@ const Header : React.FC = () : JSX.Element => {
               <span className={`text-xs`}>
                 {
                   session.status == 'authenticated' 
-                  ? `Hello, ${session?.data?.user?.name.split(' ')[0]}` 
+                  ? `Hello, ${userName}` 
                   : 'Hello, Sign in'
                 }
               </span>
@@ -157,7 +164,7 @@ const Header : React.FC = () : JSX.Element => {
       {/* Delivery Location Extend */}
       <div className='md:hidden flex items-center bg-amazon_blue-mobile py-2 pl-1 text-xs'>
         <LocationIcon className='text-xll'/>
-        <span>{`Delivery Address: ${'Chinmay'} - ${location[0]} ${location[1]} `}</span>
+        <span>{`Delivery Address: ${userName} - ${location[0]} ${location[1]} `}</span>
       </div>
 
     </header>
