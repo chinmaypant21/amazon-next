@@ -25,8 +25,8 @@ const SearchBar : React.FC<SearchProps>= ({className = ''} : SearchProps) : JSX.
 
 const Header : React.FC = () : JSX.Element => {
   const [location, setLocation] = useState<[string, string]>(['',''])
-  const [userName, setUserName] = useState('')
-  const [authBtnElementOpen, setAuthBtnElementOpen] = useState(false)
+  const [userName, setUserName] = useState<string>('')
+  const [authBtnElementOpen, setAuthBtnElementOpen] = useState<boolean>(false)
   const session = useSession()
 
   useEffect(()=>{

@@ -84,7 +84,9 @@
 }
 
 .account_auth_container > div{
-    background-color: #f6cd00;
+    border: 1px solid;
+    border-color: #c89411 #b0820f #99710d;;
+    background: -webkit-linear-gradient(top,#f8e3ad,#EEBA37);
     color: black;
     border-radius: 0.3em;
     width: 100%;
