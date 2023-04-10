@@ -3,7 +3,7 @@
 
 }
 
-.pg_header .top_container > div:not(.search_bar){
+.pg_header .top_container > *:not(.search_bar){
     border: 1px solid transparent;
     padding: 0.4vw;
     height: 80%;
@@ -119,7 +119,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .pg_header .top_container> div:not(.search_bar):hover,
+    .pg_header .top_container> *:not(.search_bar):hover,
     .sec_container > *:hover{
         border-color: white;
     }

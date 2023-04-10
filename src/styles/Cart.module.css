@@ -1,0 +1,9 @@
+.left_container{
+    flex: 6;
+    background-color: white;
+}
+
+.right_container{
+    flex: 2;
+    background-color: white;
+}

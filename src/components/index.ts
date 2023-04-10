@@ -1,3 +1,6 @@
 export {default as Header} from './Header/Header'
 export {default as Banner} from './Banner/Banner'
 export {default as ProductFeed} from './ProductFeed/ProductFeed'
+export {default as Cart} from './Cart/Cart'
+export {default as CartLogin} from './Cart/CartLogin'
+export {default as CartCheckout} from './Cart/CartCheckout'
