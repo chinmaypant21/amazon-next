@@ -1,8 +1,25 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { itemCount } from '../../state/slices/cartSlice'
 
-const Cart = () => {
-  return (
-    <div>Cart</div>
+const Cart = ({authStatus}) => {
+  const itemsCount : number = useSelector(itemCount)
+
+  if (authStatus === 'authenticated')
+    return (
+      <>
+      {
+        (itemsCount)
+        ? <div>Shopping Cart</div>
+        : <div>Your Amazon Cart is empty</div>
+      }
+      </>
+    )
+
+  else return (
+    <>
+      Unauthenticated
+    </>
   )
 }
 

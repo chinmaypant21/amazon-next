@@ -6,6 +6,8 @@ import {LocationIcon, MenuIcon, SearchIcon}  from '../../utils/icons'
 import fetchLocationAPI from '../../utils/fetchLocationAPI'
 import {signIn, signOut, useSession} from 'next-auth/react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { itemCount } from '../../state/slices/cartSlice';
 
 type SearchProps = {
   className?: string;
@@ -28,6 +30,7 @@ const Header : React.FC = () : JSX.Element => {
   const [location, setLocation] = useState<[string, string]>(['',''])
   const [userName, setUserName] = useState<string>('')
   const [authBtnElementOpen, setAuthBtnElementOpen] = useState<boolean>(false)
+  const cartItemsCount: number = useSelector(itemCount)
   const session = useSession()
 
   useEffect(()=>{
@@ -139,7 +142,7 @@ const Header : React.FC = () : JSX.Element => {
               <div className={style.cart_container}>
                 <Image src={'/cartIcon.png'} alt='cart' width={40} height={35}/>
                 {/* <CartIcon /> */}
-                <span className='text-orange-400 font-semibold w-full flex justify-center'>{'0'}</span>
+                <span className='text-orange-400 font-semibold w-full flex justify-center'>{cartItemsCount}</span>
               </div>
               <span className='hidden md:flex items-center font-bold'>Cart</span>
             </div>
