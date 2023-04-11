@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { itemCount } from '../../state/slices/cartSlice'
 
-const Cart = ({authStatus}) => {
+const CartFeed = ({authStatus}) => {
   const itemsCount : number = useSelector(itemCount)
 
   if (authStatus === 'authenticated')
@@ -23,4 +23,4 @@ const Cart = ({authStatus}) => {
   )
 }
 
-export default Cart
+export default CartFeed

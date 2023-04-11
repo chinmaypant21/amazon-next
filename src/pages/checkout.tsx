@@ -1,5 +1,5 @@
 import React from 'react'
-import { Cart, CartPayout , Header } from '../components'
+import { CartFeed, CartPayout , Header } from '../components'
 import Head from 'next/head'
 import Image from 'next/image'
 import style from '../styles/Cart.module.css'
@@ -23,7 +23,7 @@ const Checkout : React.FC = () : JSX.Element => {
 
                 <div className='flex flex-row gap-x-3'>
                     <div className={style.left_container}>
-                        <Cart authStatus={session.status} />
+                        <CartFeed authStatus={session.status} />
                     </div>
 
                     <div className={style.right_container}>
