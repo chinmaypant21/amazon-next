@@ -19,3 +19,17 @@ export type authProviderType = {
     callbackUrl : string 
   }
 }
+
+export interface cartItemType extends storeProductType {
+  // product: storeProductType,
+  quantity: number
+}
+
+export type reducerAddCartActionType = {
+  payload: storeProductType,
+  type: string,
+}
+
+export type reducerStateType = {
+  items: cartItemType[]
+}

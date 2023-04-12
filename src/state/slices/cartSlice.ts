@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { reducerAddCartActionType, reducerStateType } from "../../utils/commonTypes";
 
-const initialState = {
+const initialState : reducerStateType = {
   items: [],
 };
 
@@ -8,17 +9,43 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {
-      state.items = [...state.items,action.payload]
+    addToCart: (state, action: reducerAddCartActionType) => {
+      const index = state.items.findIndex((item) => {
+        return item.id === action.payload.id
+      })
+
+      if(index == -1)
+        state.items = [...state.items, {...action.payload, quantity:1}]
+      
+      else {
+        const items = state.items
+        items[index].quantity++
+        state.items = items
+
+      }
     },
-    removeFromCart: (state, action) => {},
+    removeFromCart: (state, action) => {
+      const index = state.items.findIndex((item) => {
+        return item.id === action.payload
+      })
+
+      if(index !== -1){
+        const items = state.items
+        items.splice(index,1)
+        state.items = items
+      }
+
+      else{
+        console.log('nonn')
+      }
+    },
   },
 });
 
 export const { addToCart, removeFromCart } = cartSlice.actions;
 
 // Selectors - This is how we pull information from the Global store slice
-export const selectItems = (state): [] => state.cart.items;
-export const itemCount = (state): number => state.cart.items.length;
+export const selectCartItems = (state) => state.cart.items;
+export const itemCount = (state): number => state.cart.items.map(item => item.quantity).reduce((x,y) => x+y,0);
 
 export default cartSlice.reducer;
