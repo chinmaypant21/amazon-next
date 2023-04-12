@@ -21,7 +21,7 @@ const Checkout : React.FC = () : JSX.Element => {
                     className='w-[70%]' />
                 </div>
 
-                <div className='flex flex-row gap-x-3'>
+                <div className='flex flex-col md:flex-row gap-x-3 gap-y-5'>
                     <div className={style.left_container}>
                         <CartFeed authStatus={session.status} />
                     </div>

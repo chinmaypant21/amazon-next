@@ -120,7 +120,7 @@ const Header : React.FC = () : JSX.Element => {
               {
                 (authBtnElementOpen &&
                   <div className={style.account_auth_container}>
-                    <div onClick={handleSignOut}>
+                    <div className='amzn-btn-main' onClick={handleSignOut}>
                       Sign Out
                     </div>
 
