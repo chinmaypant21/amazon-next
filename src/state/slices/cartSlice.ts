@@ -37,7 +37,7 @@ export const cartSlice = createSlice({
           items[index].quantity--
           state.items = items
         }
-        
+
         else{
           items.splice(index,1)
           state.items = items
@@ -50,7 +50,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart} = cartSlice.actions;
 
 // Selectors - This is how we pull information from the Global store slice
 export const selectCartItems = (state) => state.cart.items;

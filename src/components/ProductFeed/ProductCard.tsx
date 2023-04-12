@@ -1,16 +1,19 @@
 import React from 'react'
+import { useState } from 'react'
+import Image from 'next/image'
+import { useDispatch } from 'react-redux';
 import Rating from '@mui/material/Rating';
 import style from '../../styles/Product.module.css'
-import { storeProductType } from '../../utils/commonTypes'
-import Image from 'next/image'
 import CurrencyFormat from 'react-currency-format';
-import { useDispatch } from 'react-redux';
-import { addToCart as addToCartAction } from '../../state/slices/cartSlice';
+import { storeProductType } from '../../utils/commonTypes'
+import { addToCart as addToCartAction} from '../../state/slices/cartSlice';
 
 const USD_INR_VALUE = 82;
 
 const ProductCard : React.FC<{product : storeProductType}> = ({product}) => {
     const dispatcher = useDispatch();
+
+
 
     const addToCart = () => {
         // Sending the product as an action to to GLOBAL store managed by redux
@@ -45,7 +48,7 @@ const ProductCard : React.FC<{product : storeProductType}> = ({product}) => {
                 <div className='flex align-top mb-1'>
                     <span className='text-xs leading-none'>₹</span>
                     <CurrencyFormat className='text-md font-medium leading-none'
-                        value={product?.price * 82} 
+                        value={product?.price * USD_INR_VALUE} 
                         displayType='text'
                         thousandSeparator={true}
                         decimalScale={2}
