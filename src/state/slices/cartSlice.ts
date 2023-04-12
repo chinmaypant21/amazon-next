@@ -31,12 +31,20 @@ export const cartSlice = createSlice({
 
       if(index !== -1){
         const items = state.items
-        items.splice(index,1)
-        state.items = items
+
+        if (items[index].quantity > 1)
+        {
+          items[index].quantity--
+          state.items = items
+        }
+        
+        else{
+          items.splice(index,1)
+          state.items = items
+        }
       }
 
       else{
-        console.log('nonn')
       }
     },
   },
