@@ -3,14 +3,19 @@ import Image from 'next/image'
 import { Rating } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import CurrencyFormat from 'react-currency-format'
-import { removeFromCart } from '../../state/slices/cartSlice'
+import { addToCart, removeFromCart } from '../../state/slices/cartSlice'
+import { cartItemType } from '../../utils/commonTypes'
 
 
-const CartFeedCard = ({item}) => {
+const CartFeedCard = ({item} : {item: cartItemType}) => {
     const dispatch = useDispatch()
   
     const handleItemRemove = (id) => {
         dispatch(removeFromCart(id))
+    }
+
+    const handleItemAdd = (item : cartItemType) => {
+        dispatch(addToCart(item))
     }
 
   return (
@@ -36,12 +41,21 @@ const CartFeedCard = ({item}) => {
                 fixedDecimalScale={true}
                 />
             </span>
-        </div>
-        <div>
-            <div className='amzn-btn-main cursor-pointer' onClick={() => {handleItemRemove(item.id)}}>
-            <span>Remove</span>
+
+            <div className='my-2 flex justify-center'>
+                <span className='bg-gray-300 rounded-md p-1 font-semibold'>Qty : {item.quantity}</span>
             </div>
-            <div>Quantity : {item.quantity}</div>
+
+        </div>
+
+        <div className='flex flex-col gap-y-3'>
+            <div className='amzn-btn-main cursor-pointer' onClick={() => {handleItemAdd(item)}}>
+                <span>Add</span>
+            </div>
+            
+            <div className='amzn-btn-main pt-10 cursor-pointer' onClick={() => {handleItemRemove(item.id)}}>
+                <span>Remove</span>
+            </div>
         </div>
         </div>
         </>
