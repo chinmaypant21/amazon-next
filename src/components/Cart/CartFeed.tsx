@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { itemCount, selectCartItems } from '../../state/slices/cartSlice'
 import { cartItemType } from '../../utils/commonTypes'
 import Link from 'next/link'
