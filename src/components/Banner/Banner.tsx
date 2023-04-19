@@ -38,9 +38,11 @@ const Banner : React.FC = () : JSX.Element => {
         className={style.carousel_wrapper}
       >
         {
-          bannerImagesList.map(imgURL => (
+          bannerImagesList.map((imgURL,idx) => (
             <div>
-              <img loading='lazy' src={BANNER_PUBLIC_URL + imgURL}
+              <img 
+                loading={idx===0 ? 'eager' : 'lazy'} 
+                src={BANNER_PUBLIC_URL + imgURL}
                 alt='Banner Image'
                 className={style.carousel_image}
                 key={imgURL}
