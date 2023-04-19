@@ -3,6 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { useMediaQuery } from 'react-responsive'
 import style from '../../styles/Banner.module.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Image from 'next/image';
 
 type bannerMedia = {
   isSmall : boolean,
@@ -40,9 +41,12 @@ const Banner : React.FC = () : JSX.Element => {
         {
           bannerImagesList.map((imgURL,idx) => (
             <div>
-              <img 
+              {/* <img */}
+              <Image
                 loading={idx===0 ? 'eager' : 'lazy'} 
                 src={BANNER_PUBLIC_URL + imgURL}
+                width={1600}
+                height={900}
                 alt='Banner Image'
                 className={style.carousel_image}
                 key={imgURL}
